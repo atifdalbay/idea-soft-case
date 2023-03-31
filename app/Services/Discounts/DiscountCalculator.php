@@ -32,7 +32,7 @@ class DiscountCalculator
                 $totalDiscount += $discountAmount;
             }
 
-            if ($product->category_id = 2 && $item['quantity'] >= 6) {
+            if ($product->category_id == 2 && $item['quantity'] >= 6) {
                 $discountAmount = $item['unit_price'];
                 $totalPrice = $totalPrice - $discountAmount;
 
@@ -44,7 +44,7 @@ class DiscountCalculator
 
                 $totalDiscount += $discountAmount;
 
-            } else if ($product->category_id = 1) {
+            } else if ($product->category_id == 1) {
                 $productCount++;
 
                 $productPrices[] = $product->price;
