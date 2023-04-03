@@ -17,6 +17,7 @@ class DiscountCalculator
         $discountStatus = false;
 
         foreach ($order->items as $item) {
+
             $product = Product::find($item['product_id']);
 
             if ($totalPrice >= 1000) {
@@ -32,7 +33,7 @@ class DiscountCalculator
                 $totalDiscount += $discountAmount;
             }
 
-            if ($product->category_id == 2 && $item['quantity'] >= 6) {
+            if ($product->category == 2 && $item['quantity'] >= 6) {
                 $discountAmount = $item['unit_price'];
                 $totalPrice = $totalPrice - $discountAmount;
 
@@ -44,7 +45,7 @@ class DiscountCalculator
 
                 $totalDiscount += $discountAmount;
 
-            } else if ($product->category_id == 1) {
+            } else if ($product->category == 1) {
                 $productCount++;
 
                 $productPrices[] = $product->price;
